@@ -12,6 +12,8 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(express.json());
+app.use("/api", apiRoutes);
+app.use("/", htmlRoutes);
 
 // Basic route that sends the user first to the AJAX Page
 app.get("/", (req, res) =>
@@ -37,7 +39,7 @@ app.post("/api/notes", (req, res) => {
     // empty array for new data that has been parsed.
     const newDB = [];
 
-    // req.body hosts is equal to the JSON post sent from the user
+    // req.body host is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
     db.push(req.body);
 
