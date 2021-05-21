@@ -22,12 +22,41 @@ app.get("/notes", (req, res) =>
 );
 
 app.get("/api/notes", (req, res) => {
-  res.sendFile(path.join(__dirname, "./db/db.json"), "utf8", (err, data) => {
+  fs.readFile(path.join(__dirname, "./db/db.json"), "utf8", (err, data) => {
+    if (err) throw err;
+    res.json(JSON.parse(data));
+  });
+});
+
+// takes in JSON input
+app.post("/api/notes", (req, res) => {
+  fs.readFile(path.join(__dirname, "./db/db.json"), "utf8", (err, data) => {
     if (err) throw err;
     const db = JSON.parse(data);
     // empty array for new data that has been parsed.
     const newDB = [];
+
+    // req.body hosts is equal to the JSON post sent from the user
+    // This works because of our body parsing middleware
+    db.push(req.body);
+
+    for (let i = 0; i < db.length; i++) {
+      const newNote = {
+        title: db[i].title,
+        text: db[i].text,
+      };
+
+      newDB.push(newNote);
+    }
   });
+
+  // Using a RegEx Pattern to remove spaces from newCharacter
+  // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+  newCharacter.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
+  console.log(newCharacter);
+
+  characters.push(newCharacter);
+  res.json(newCharacter);
 });
 
 // Starts the server to begin listening
