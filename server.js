@@ -36,17 +36,17 @@ app.get("/api/notes", (req, res) => {
 app.post("/api/notes", (req, res) => {
   fs.readFile(path.join(__dirname, "./db/db.json"), "utf8", (err, data) => {
     if (err) throw err;
-    const newDB = JSON.parse(data);
+    const newNote = JSON.parse(data);
     // empty array for new data that has been parsed.
     // const newDB = [];
 
     // req.body host is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
-    newDB.push(req.body);
+    newNote.push(req.body);
 
     fs.writeFile("./db/db.json", JSON.stringify(newDB), (err, data) => {
       if (err) throw err;
-      res.json(newDB);
+      res.json(newNote);
     });
   });
 });
