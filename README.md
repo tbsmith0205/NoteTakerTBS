@@ -5,6 +5,11 @@ This app is a Note Taker that can be used to write and save notes. This applicat
 https://sleepy-gorge-68593.herokuapp.com/
 
 ## Usage:
-<iframe frameBorder='0' width='640' height='360' webkitallowfullscreen mozallowfullscreen allowfullscreen src="https://www.awesomescreenshot.com/embed?id=3853132&shareKey=803f82c29cbbee4653f923e0bc4ffe17"></iframe>
-The above gif demonstrates the functionality of the Note Taker app by adding a new note and saving it.
+https://www.awesomescreenshot.com/video/3853132?key=803f82c29cbbee4653f923e0bc4ffe17
+The above video demonstrates the functionality of the Note Taker app by adding a new note and saving it.
+
+## Credits:
+JavaScript
+NodeJS
+Node Packages -- Express
 
