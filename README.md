@@ -10,6 +10,8 @@ The above video demonstrates the functionality of the Note Taker app by adding a
 
 ## Credits:
 JavaScript
+
 NodeJS
+
 Node Packages -- Express
 
